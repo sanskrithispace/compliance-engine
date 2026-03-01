@@ -1,10 +1,83 @@
-# Law as Code — Compliance API
+# Law-as-Code: Compliance-as-a-Service for Child Digital Safety
 
-A machine-readable implementation of **UAE Federal Decree-Law No. 26 of 2025**
-(Child Digital Safety & Age Verification).
+## The Problem Every Platform Faces
 
-Laws are stored as structured data in a live registry, evaluated in real-time,
-and every decision is logged to a SHA-256 hash chain for tamper-evident auditing.
+Your app needs to comply with child safety laws. Today this means:
+
+- **Weeks of work**: Legal team reads law → memo to engineers → code implementation → testing → deployment
+- **Inconsistency**: Each platform (education, gaming, fintech) implements differently
+- **Risk**: Gaps in protection while implementation happens
+- **Maintenance nightmare**: When law changes, entire cycle repeats
+
+**Result**: Children unprotected during the gap. No enforceable standard across platforms.
+
+## The Solution: Stop Building Compliance. Start Using Ours.
+
+One API call. You're compliant.
+
+```
+Your App              Law-as-Code API         Compliance ✅
+↓                      ↓                        ↓
+POST /api/v1/verify   →  Engine evaluates   →  Decision logged
+{age, service,           all active laws        + audit proof
+ action}                                        + rate limited
+```
+
+**In hours, not weeks.** Automatically updated when laws change. Auditable proof for regulators.
+
+## The Business Model: Compliance-as-a-Service
+
+We manage the laws. You focus on your product.
+
+### How It Works
+
+1. **You integrate once** (one API endpoint)
+2. **We manage laws** (add/update without your code changes)
+3. **You get compliance** (every decision auditable)
+4. **Regulators are happy** (tamper-evident proof)
+
+### Subscription Tiers
+
+| Feature | Free | Pro | Enterprise |
+|---------|------|-----|------------|
+| API Calls/Day | 10 | 1,000 | Unlimited |
+| Laws Supported | 7 (UAE) | 7 + Regional | Custom |
+| Audit Retention | 30 days | 1 year | Forever |
+| SLA | Community | 99.5% | 99.99% |
+| Support | Public | 24h Email | Dedicated |
+| Price | Free | $99/mo | Custom |
+
+### Real Use Cases
+
+**Education Platform**
+- User age 10 tries adult course
+- You call: `POST /verify { age: 10, service: "education" }`
+- We return: `{ decision: "BLOCK", reason: "Law#3: <13 blocked", audit_id: "..." }`
+- You show error. Compliance: ✅ Logged & auditable.
+
+**Gaming Platform**
+- User age 14 tries chat feature
+- You call: `POST /verify { age: 14, service: "gaming", action: "chat" }`
+- We return: `{ decision: "REQUIRE_CONSENT", reason: "Needs parent approval", audit_id: "..." }`
+- You show "Get parent approval" flow. Compliance: ✅
+
+**Fintech App**
+- User age 16 tries invest account
+- You call: `POST /verify { age: 16, service: "finance", action: "open_account" }`
+- We return: `{ decision: "RESTRICT", reason: "Age 16: limited trading only", audit_id: "..." }`
+- You show restricted features. Compliance: ✅
+
+## What This POC Demonstrates
+
+This is a working proof-of-concept of law-as-code compliance. It shows:
+
+1. **Laws as data, not code** — Edit law thresholds in admin dashboard, changes take effect immediately (no code redeploy)
+2. **Real-time multi-law evaluation** — All 7 UAE laws evaluated simultaneously, strictest result wins
+3. **Immutable audit trail** — SHA-256 hash chain proves every decision, tamper-evident
+4. **Auto-expiry logic** — When user ages past restriction, system automatically lifts it (logged as EXPIRY event)
+5. **SaaS API with gating** — API key authentication, subscription tiers with rate limiting
+
+---
 
 ## Structure
 
