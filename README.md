@@ -71,7 +71,7 @@ We manage the laws. You focus on your product.
 
 This is a working proof-of-concept of law-as-code compliance. It shows:
 
-1. **Laws as data, not code** — Edit law thresholds in admin dashboard, changes take effect immediately (no code redeploy)
+1. **Laws as code** — Edit law thresholds in admin dashboard, changes take effect immediately (no code redeploy)
 2. **Real-time multi-law evaluation** — All 7 UAE laws evaluated simultaneously, strictest result wins
 3. **Immutable audit trail** — SHA-256 hash chain proves every decision, tamper-evident
 4. **Auto-expiry logic** — When user ages past restriction, system automatically lifts it (logged as EXPIRY event)
